@@ -1,4 +1,4 @@
-package com.example.listview;
+package com.example.listview.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.example.listview.R;
+import com.example.listview.dto.Topic;
 
 import java.util.List;
 

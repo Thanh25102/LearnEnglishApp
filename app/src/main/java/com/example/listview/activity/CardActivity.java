@@ -1,4 +1,4 @@
-package com.example.listview;
+package com.example.listview.activity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
@@ -6,14 +6,14 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
+import com.example.listview.R;
 
 public class CardActivity extends AppCompatActivity {
 
     private AnimatorSet frontAnimatorSet;
     private AnimatorSet backAnimatorSet;
     private boolean isFront = true;
-
-    private Button btnCountinue;
+    private Button btnContinue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +30,8 @@ public class CardActivity extends AppCompatActivity {
         frontAnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.front_animator);
         backAnimatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(getApplicationContext(),R.animator.back_animator);
 
-        btnCountinue = findViewById(R.id.btnCountinue);
-        btnCountinue.setOnClickListener(v->{
+        btnContinue = findViewById(R.id.btnContinue);
+        btnContinue.setOnClickListener(v->{
             if(isFront){
                 frontAnimatorSet.setTarget(cardFront);
                 backAnimatorSet.setTarget(cardBack);
