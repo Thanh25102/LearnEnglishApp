@@ -3,17 +3,19 @@ package com.example.listview.activity;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.example.listview.R;
-import com.example.listview.adapter.TopicAdapter;
+import com.example.listview.adapter.LessonRecyclerAdapter;
+import com.example.listview.dto.Lesson;
 import com.example.listview.dto.Topic;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
-    private ListView listView;
     private List<Topic> topics;
-    private TopicAdapter topicAdapter;
+    private RecyclerView recyclerView;
+    private LessonRecyclerAdapter lessonRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +29,13 @@ public class MainActivity extends AppCompatActivity {
                 new Topic(null,null,"Sex","Giới tính",null),
                 new Topic(null,null,"Friend","Bạn bè",null),
                 new Topic(null,null,"Comedy","Hài kịch",null));
-        topicAdapter = new TopicAdapter(MainActivity.this,R.layout.topic_item,topics);
-        listView = findViewById(R.id.listView);
-        listView.setAdapter(topicAdapter);
+
+//        // recycler view
+        recyclerView = findViewById(R.id.recyclerTopic);
+        Lesson lesson = new Lesson();
+        lesson.setTopics(topics);
+        lessonRecyclerAdapter = new LessonRecyclerAdapter(this,lesson);
+        recyclerView.setAdapter(lessonRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
