@@ -10,4 +10,5 @@
     <color name="green">#007800</color>
     <color name="green_middle">#00ac00</color>
     <color name="green_cyan">#00e300</color>
+    <color name="nav_bar">#CC1F2F98</color>
 </resources>
