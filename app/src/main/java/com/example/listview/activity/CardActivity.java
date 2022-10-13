@@ -3,10 +3,12 @@ package com.example.listview.activity;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.cardview.widget.CardView;
 import com.example.listview.R;
+import com.example.listview.dto.Topic;
 
 public class CardActivity extends AppCompatActivity {
 
@@ -19,6 +21,10 @@ public class CardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card);
+
+        Topic topic = (Topic)getIntent().getSerializableExtra("TOPIC_KEY");
+        TextView textViewBack = findViewById(R.id.textViewBack);
+        textViewBack.setText(topic.getDescription());
 
         Float scale = getApplicationContext().getResources().getDisplayMetrics().density;
         CardView cardFront = findViewById(R.id.cardFront);

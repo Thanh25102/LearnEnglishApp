@@ -1,5 +1,6 @@
 package com.example.listview.activity;
 
+import android.content.Intent;
 import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,8 +35,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerTopic);
         Lesson lesson = new Lesson();
         lesson.setTopics(topics);
-        lessonRecyclerAdapter = new LessonRecyclerAdapter(this,lesson);
+        lessonRecyclerAdapter = new LessonRecyclerAdapter(this, lesson, this::displayVocabulariesActivity);
         recyclerView.setAdapter(lessonRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void displayVocabulariesActivity(Topic topic){
+        Intent vocabulariesIntent = new Intent(this,CardActivity.class);
+        vocabulariesIntent.putExtra("TOPIC_KEY",topic);
+        startActivity(vocabulariesIntent);
     }
 }

@@ -3,22 +3,27 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto"
                                                    xmlns:tools="http://schemas.android.com/tools"
                                                    android:layout_width="match_parent"
-                                                   android:layout_height="wrap_content" android:background="#FFFFFF">
+                                                   android:layout_height="wrap_content" android:background="#FFFFFF"
+>
 
 
     <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                                       android:id="@+id/cardViewTopic"
                                        app:layout_constraintEnd_toEndOf="parent"
-                                       app:layout_constraintStart_toStartOf="parent" android:layout_margin="20dp"
+                                       app:layout_constraintStart_toStartOf="parent"
                                        app:layout_constraintTop_toTopOf="parent"
                                        android:background="@drawable/box_shadow"
-                                       app:cardCornerRadius="10dp">
+                                       app:cardCornerRadius="10dp" app:layout_constraintBottom_toBottomOf="parent"
+                                       android:layout_marginStart="20dp" android:layout_marginTop="10dp"
+                                       android:layout_marginEnd="20dp" android:layout_marginBottom="10dp">
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" android:padding="2dp"
-                android:background="#048409" android:clickable="true">
+                android:background="#048409" android:clickable="true"
+        android:id="@+id/layoutCardTopic">
             <androidx.cardview.widget.CardView
                     android:layout_width="220dp"
                     android:layout_height="110dp" android:layout_weight="1"
@@ -46,10 +51,10 @@
                 <TextView
                         android:text="TextView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:id="@+id/thumbnailTextView" android:paddingTop="5dp"
+                        android:layout_height="wrap_content" android:id="@+id/thumbnailTextView"
+                        android:paddingTop="5dp"
                         android:textSize="14sp" android:textColor="#FFFFFF"/>
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

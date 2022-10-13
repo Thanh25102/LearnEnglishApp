@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.listview.R;
 import com.example.listview.adapter.holder.TopicViewHolder;
 import com.example.listview.dto.Lesson;
+import com.example.listview.dto.Topic;
 import org.jetbrains.annotations.NotNull;
 
 public class LessonRecyclerAdapter extends RecyclerView.Adapter<TopicViewHolder> {
@@ -16,9 +17,15 @@ public class LessonRecyclerAdapter extends RecyclerView.Adapter<TopicViewHolder>
     private Lesson lesson;
     private Context context;
 
-    public LessonRecyclerAdapter(Context context,Lesson lesson) {
+    private IClickedTopic clickedTopic;
+    public interface IClickedTopic{
+        void topicIsClicked(Topic topic);
+    }
+
+    public LessonRecyclerAdapter(Context context,Lesson lesson,IClickedTopic clickedTopic) {
         this.lesson = lesson;
         this.context = context;
+        this.clickedTopic = clickedTopic;
     }
 
     @NonNull
@@ -33,6 +40,10 @@ public class LessonRecyclerAdapter extends RecyclerView.Adapter<TopicViewHolder>
     public void onBindViewHolder(@NonNull @NotNull TopicViewHolder holder, int position) {
         holder.getTitleTextView().setText(lesson.getTopics().get(position).getDescription());
         holder.getThumbnailTextView().setText(lesson.getTopics().get(position).getDescriptiveMeaning());
+
+        holder.linearLayout.setOnClickListener(v->{
+            clickedTopic.topicIsClicked(lesson.getTopics().get(position));
+        });
     }
 
     @Override
