@@ -1,4 +1,4 @@
-package com.example.listview.activity;
+package com.example.listview.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;

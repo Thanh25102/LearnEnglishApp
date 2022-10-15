@@ -1,4 +1,4 @@
-package com.example.listview.activity;
+package com.example.listview.ui;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;

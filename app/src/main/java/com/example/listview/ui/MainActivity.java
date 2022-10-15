@@ -1,7 +1,6 @@
-package com.example.listview.activity;
+package com.example.listview.ui;
 
 import android.content.Intent;
-import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
