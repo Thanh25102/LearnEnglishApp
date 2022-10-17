@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.listview.R;
 import com.example.listview.adapter.LessonRecyclerAdapter;
+import com.example.listview.adapter.TopicRecyclerAdapter;
 import com.example.listview.dto.Lesson;
 import com.example.listview.dto.Topic;
 import com.google.android.material.navigation.NavigationView;
@@ -24,9 +25,8 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private List<Topic> topics;
     private RecyclerView recyclerView;
-    private LessonRecyclerAdapter lessonRecyclerAdapter;
+    private TopicRecyclerAdapter topicRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,9 @@ public class MainActivity extends AppCompatActivity {
         loadCustomActionBar();
         List<Topic> data = loadData();
         recyclerView = findViewById(R.id.recyclerTopic);
-
-        lessonRecyclerAdapter = new LessonRecyclerAdapter( this::displayVocabulariesActivity,LessonRecyclerAdapter.TYPE_TOPIC_LINEAR);
-        lessonRecyclerAdapter.setData(data);
-        recyclerView.setAdapter(lessonRecyclerAdapter);
+        topicRecyclerAdapter = new TopicRecyclerAdapter(this::displayVocabulariesActivity,TopicRecyclerAdapter.TYPE_TOPIC_LINEAR);
+        topicRecyclerAdapter.setData(data);
+        recyclerView.setAdapter(topicRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 

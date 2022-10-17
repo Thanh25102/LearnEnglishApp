@@ -4,23 +4,22 @@ import android.content.Intent;
 import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.listview.R;
 import com.example.listview.adapter.LessonRecyclerAdapter;
+import com.example.listview.dto.Lesson;
 import com.example.listview.dto.Topic;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    private List<Topic> topics;
     private RecyclerView recyclerView;
     private LessonRecyclerAdapter lessonRecyclerAdapter;
     @Override
@@ -29,10 +28,10 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         loadCustomActionBar();
-        List<Topic> data = loadData();
+        List<Lesson> data = loadData();
         recyclerView = findViewById(R.id.recyclerView);
 
-        lessonRecyclerAdapter = new LessonRecyclerAdapter( this::displayVocabulariesActivity,LessonRecyclerAdapter.TYPE_TOPIC_GRID);
+        lessonRecyclerAdapter = new LessonRecyclerAdapter( this::displayVocabulariesActivity,LessonRecyclerAdapter.TYPE_LESSON_GRID);
         lessonRecyclerAdapter.setData(data);
         recyclerView.setAdapter(lessonRecyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this,3));
@@ -48,29 +47,25 @@ public class HomeActivity extends AppCompatActivity {
         avatar.setImageDrawable(drawable);
         // set event
     }
-
-    private void displayVocabulariesActivity(Topic topic) {
-        Intent vocabulariesIntent = new Intent(this, CardActivity.class);
-        vocabulariesIntent.putExtra("TOPIC_KEY", topic);
-        startActivity(vocabulariesIntent);
+    private void displayVocabulariesActivity(Lesson lesson) {
+        Intent topicIntent = new Intent(this, MainActivity.class);
+        topicIntent.putExtra("LESSON_KEY", lesson.getId());
+        startActivity(topicIntent);
     }
 
-    public List<Topic> loadData(){
-        return  List.of(new Topic(null, null, "Economic", "Kinh tế chính trị", null),
-                new Topic(null, null, "Information", "Công nghệ thông tin", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null),
-                new Topic(null, null, "Movie", "Phim ảnh", null),
-                new Topic(null, null, "Sex", "Giới tính", null),
-                new Topic(null, null, "Friend", "Bạn bè", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null),
-                new Topic(null, null, "Movie", "Phim ảnh", null),
-                new Topic(null, null, "Sex", "Giới tính", null),
-                new Topic(null, null, "Friend", "Bạn bè", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null),
-                new Topic(null, null, "Movie", "Phim ảnh", null),
-                new Topic(null, null, "Sex", "Giới tính", null),
-                new Topic(null, null, "Friend", "Bạn bè", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null));
+    public List<Lesson> loadData(){
+        return List.of(new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"),
+                new Lesson(null,"TOEIC 500","Giành cho người muốn skip tiếng anh 1 2 3","học trong 10 tháng"));
     }
     public Bitmap createCircleBitmap(Bitmap bitMapping) {
         Bitmap output = Bitmap.createBitmap(bitMapping.getWidth(),

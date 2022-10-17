@@ -14,5 +14,4 @@ public class Lesson {
     private String name;
     private String target;
     private String description;
-    private List<Topic> topics;
 }
