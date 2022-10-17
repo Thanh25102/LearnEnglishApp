@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              app:contentInsetStartWithNavigation="0dp"
+              app:contentInsetStart="0dp" android:weightSum="8" android:padding="6dp" >
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="3" android:orientation="horizontal"
+            android:gravity="center_vertical" android:weightSum="4">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="0dp"
+                                                           android:layout_height="match_parent"
+                                                           android:layout_weight="4" android:id="@+id/layout_logo">
+            <androidx.cardview.widget.CardView
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    app:cardCornerRadius="32dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:id="@+id/cardView" app:cardBackgroundColor="@color/nav_bar" app:cardElevation="0dp">
+                <ImageButton
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/baseline_notifications_black_24"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/transparent"
+                        android:id="@+id/action_bar_logo"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:contentDescription="logo" app:tint="#FFFFFF"
+                        android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                    android:text="FourT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_weight="3"
+                    android:textSize="16sp" android:fontFamily="monospace"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardView" app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintVertical_bias="0.499"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="2" android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical" android:id="@+id/layout_score">
+        <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="wrap_content"
+                                                           android:layout_height="match_parent"
+                                                           android:clickable="true"
+                                                           android:focusable="true">
+            <androidx.cardview.widget.CardView
+                    android:id="@id/action_bar_score_bao"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" app:cardCornerRadius="32dp"
+                    app:cardBackgroundColor="@color/nav_bar" app:cardElevation="0dp">
+
+                <ImageButton
+                        android:layout_width="wrap_content"
+                        android:src="@drawable/baseline_military_tech_black_24"
+                        android:id="@+id/action_bar_score"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="avatar" android:layout_height="wrap_content"
+                        app:tint="#FFFFFF" android:padding="8dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:foreground="?attr/selectableItemBackgroundBorderless"/>
+            </androidx.cardview.widget.CardView>
+            <TextView
+                    android:text="1000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/textView4"
+                    android:fontFamily="monospace" android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/action_bar_score_bao"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent" android:layout_weight="3" android:orientation="vertical"
+            android:gravity="center_vertical">
+        <androidx.cardview.widget.CardView android:layout_width="40dp" android:layout_height="40dp"
+                                           android:layout_gravity="right|center_vertical"
+                                           app:cardCornerRadius="32dp" app:cardBackgroundColor="@color/nav_bar" app:cardElevation="0dp">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/manhthanh" android:id="@+id/avatar" android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"/>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>

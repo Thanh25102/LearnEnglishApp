@@ -7,11 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".ui.HomeActivity"
         android:background="@color/white">
-    <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_width="match_parent"
-                                                           android:layout_height="wrap_content"
-                                                           app:layout_constraintTop_toTopOf="parent"
-                                                           app:menu="@menu/menu_navigation_bar"
-                                                           />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_width="match_parent"
                                                                        android:layout_height="wrap_content"
@@ -19,6 +14,7 @@
                                                                        app:menu="@menu/menu_bottom_navigation"
                                                                        android:background="@color/nav_bar"
                                                                        app:layout_constraintEnd_toEndOf="parent"
-                                                                       app:itemTextColor="@color/black"/>
+                                                                       app:itemTextColor="@color/black"
+                                                                       app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
