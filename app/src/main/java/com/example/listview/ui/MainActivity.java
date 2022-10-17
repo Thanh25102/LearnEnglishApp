@@ -34,12 +34,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         loadCustomActionBar();
-        topics = loadData();
-
+        List<Topic> data = loadData();
         recyclerView = findViewById(R.id.recyclerTopic);
-        Lesson lesson = new Lesson();
-        lesson.setTopics(topics);
-        lessonRecyclerAdapter = new LessonRecyclerAdapter(this, lesson, this::displayVocabulariesActivity);
+
+        lessonRecyclerAdapter = new LessonRecyclerAdapter( this::displayVocabulariesActivity,LessonRecyclerAdapter.TYPE_TOPIC_LINEAR);
+        lessonRecyclerAdapter.setData(data);
         recyclerView.setAdapter(lessonRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
