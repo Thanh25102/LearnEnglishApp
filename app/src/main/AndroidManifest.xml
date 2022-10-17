@@ -17,9 +17,6 @@
                 android:name=".ui.MainActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.LessonActivity"
-                android:exported="false"/>
-        <activity
                 android:name=".ui.CardActivity"
                 android:exported="false"/>
         <activity
