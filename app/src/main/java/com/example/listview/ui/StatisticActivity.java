@@ -1,5 +1,6 @@
 package com.example.listview.ui;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
@@ -26,6 +27,7 @@ public class StatisticActivity extends AppCompatActivity {
     private BarChart barChart;
     private ImageView imgTimer;
     private ImageView imgLearn;
+    private Dialog dialog;
     private RelativeLayout timerRemember;
     private RelativeLayout rememberVocubulary;
     @Override
@@ -39,6 +41,8 @@ public class StatisticActivity extends AppCompatActivity {
         timerRemember = findViewById(R.id.timerRemember);
         rememberVocubulary = findViewById(R.id.rememberVocubulary);
 
+        dialog = new Dialog(this);
+
         imgTimer.setOnClickListener(v->{
             rememberVocubulary.setVisibility(View.VISIBLE);
             timerRemember.setVisibility(View.INVISIBLE);
@@ -46,10 +50,20 @@ public class StatisticActivity extends AppCompatActivity {
         imgLearn.setOnClickListener(v->{
             timerRemember.setVisibility(View.VISIBLE);
             rememberVocubulary.setVisibility(View.INVISIBLE);
+            openNoticeDialog();
         });
         barChart = findViewById(R.id.barChart);
         setUpBarChart(barChart);
     }
+
+    private void openNoticeDialog() {
+        dialog.setContentView(R.layout.notice_learning_english_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        RelativeLayout imgClose = dialog.findViewById(R.id.imgClose);
+//        RelativeLayout imgContinue = dialog.findViewById(R.id.imgContinue);
+        dialog.show();
+    }
+
     private void setUpBarChart(BarChart barChartSetUp){
         List<BarEntry> barEntries = new ArrayList<>();
         for (int i = 1; i < 6; i++) {
