@@ -18,8 +18,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/recyclerTopic" android:layout_margin="0dp"
             android:backgroundTintMode="add" android:background="@color/nav_bar"
-            android:layout_gravity="center|center_horizontal|center_vertical" app:layout_constraintVertical_bias="1.0"
-    />
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_gravity="center|center_horizontal|center_vertical"/>
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="0dp"
