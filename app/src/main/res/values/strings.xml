@@ -46,4 +46,5 @@
     <string name="search">Search</string>
     <string name="setting">Setting</string>
     <string name="action_settings">setting</string>
+    <string name="title_activity_chart_test">ChartTest</string>
 </resources>

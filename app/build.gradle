@@ -37,11 +37,14 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     // https://mvnrepository.com/artifact/androidx.cardview/cardview
     implementation group: 'androidx.cardview', name: 'cardview', version: '1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.3.5'
-    implementation 'androidx.navigation:navigation-ui:2.3.5'
+    implementation 'androidx.navigation:navigation-fragment:2.5.2'
+    implementation 'androidx.navigation:navigation-ui:2.5.2'
+
+
     // https://mvnrepository.com/artifact/org.projectlombok/lombok
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 
     testImplementation 'junit:junit:4.13.2'
