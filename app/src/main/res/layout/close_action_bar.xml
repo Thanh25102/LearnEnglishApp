@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="horizontal"
-              app:contentInsetStartWithNavigation="0dp"
-              app:contentInsetStart="0dp" android:weightSum="8"  android:padding="2dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="?actionBarSize"
+                                                   android:orientation="horizontal"
+                                                   app:contentInsetStartWithNavigation="0dp"
+                                                   app:contentInsetStart="0dp">
+
     <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="1" android:orientation="horizontal"
-            android:gravity="center_vertical" android:weightSum="4">
-        <ImageButton
-                android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="horizontal"
+            android:gravity="center_vertical" android:weightSum="4" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/backBtnWrap" android:clickable="true" android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless" android:paddingRight="8dp">
+        <ImageView
+                android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/baseline_close_black_36"
+                android:src="@drawable/baseline_arrow_back_ios_new_black_24"
                 android:layout_gravity="center_vertical"
                 android:background="@android:color/transparent"
-                android:id="@+id/action_bar_logo"
+                android:id="@+id/backBtn"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:contentDescription="logo" app:tint="#FFFFFF"
-                android:padding="8dp"
+                android:padding="6dp"
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?attr/selectableItemBackgroundBorderless"/>
@@ -28,12 +34,15 @@
 
     <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent" android:layout_weight="7" android:orientation="horizontal"
-            android:gravity="center_horizontal|center_vertical" android:id="@+id/layout_score">
+            android:layout_height="match_parent" android:orientation="horizontal"
+            android:gravity="center_horizontal|center_vertical" android:id="@+id/layout_score"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toEndOf="@+id/backBtnWrap">
         <TextView
-                android:text="Cài đặt tài khoản"
+                android:text="Quay lại"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView8" android:layout_weight="1"
                 android:textSize="18sp" android:fontFamily="monospace" android:textStyle="bold"/>
     </LinearLayout>
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

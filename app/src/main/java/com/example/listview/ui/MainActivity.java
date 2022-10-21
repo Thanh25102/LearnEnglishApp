@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,11 +15,13 @@ import com.example.listview.ui.fragment.HomeFragment;
 import com.example.listview.ui.fragment.ViewPagerAdapter;
 import com.example.listview.util.ActionBarUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
     public ViewPager2 viewPager2;
     private BottomNavigationView bottomNavigationView;
     private BottomNavigationView bottomNavigationViewOn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     case 0 : bottomNavigationView.getMenu().findItem(R.id.action_chart).setChecked(true); break;
                     case 1 : bottomNavigationView.getMenu().findItem(R.id.action_home).setChecked(true); break;
                     case 2 : bottomNavigationView.getMenu().findItem(R.id.action_rank).setChecked(true); break;
-
+                    case 3 : bottomNavigationViewOn.getMenu().findItem(R.id.action_learn).setChecked(true); break;
                 }
             }
         });
@@ -58,11 +61,20 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
 
+        bottomNavigationViewOn.setOnItemSelectedListener(menuItem->{
+            if(menuItem.getItemId() == R.id.action_learn){
+                viewPager2.setCurrentItem(3);
+            }
+            return true;
+        });
+
         ActionBarUtil actionBarUtil = ActionBarUtil.getInstance();
         Bitmap sourceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.manhthanh);
         Drawable drawable = new BitmapDrawable(getResources(), actionBarUtil.createCircleBitmap(sourceBitmap));
 
         bottomNavigationViewOn.setItemIconTintList(null);
         bottomNavigationViewOn.getMenu().findItem(R.id.action_avatar).setIcon(drawable);
+
+
     }
 }

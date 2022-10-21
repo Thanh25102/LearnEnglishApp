@@ -20,6 +20,8 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
                 return new HomeFragment();
             case 2:
                 return new RankFragment();
+            case 3 :
+                return new LessonFragment();
             default:
                 return new ChartFragment();
         }
@@ -27,6 +29,6 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 4;
     }
 }

@@ -5,6 +5,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +17,7 @@ import com.example.listview.adapter.TopicRecyclerAdapter;
 import com.example.listview.dto.Topic;
 import com.example.listview.util.ActionBarUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
 
@@ -21,13 +25,12 @@ public class TopicActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private TopicRecyclerAdapter topicRecyclerAdapter;
-    private BottomNavigationView bottomNavigationViewOn;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topic);
-        bottomNavigationViewOn = findViewById(R.id.bottomNavVIew);
 
         ActionBarUtil actionBarUtil = ActionBarUtil.getInstance();
         List<Topic> data = actionBarUtil.loadTopicData();
@@ -37,14 +40,17 @@ public class TopicActivity extends AppCompatActivity {
             intent.putExtra("TOPIC_KEY", t);
             startActivity(intent);
         },TopicRecyclerAdapter.TYPE_TOPIC_LINEAR);
+
         topicRecyclerAdapter.setData(data);
         recyclerView.setAdapter(topicRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        Bitmap sourceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.manhthanh);
-        Drawable drawable = new BitmapDrawable(getResources(), actionBarUtil.createCircleBitmap(sourceBitmap));
-
-        bottomNavigationViewOn.setItemIconTintList(null);
-        bottomNavigationViewOn.getMenu().findItem(R.id.action_avatar).setIcon(drawable);
+        navigationView = findViewById(R.id.navigationView);
+        View header = navigationView.getHeaderView(0);
+        ImageView back = header.findViewById(R.id.backBtn);
+        back.setOnClickListener(backView ->{
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
