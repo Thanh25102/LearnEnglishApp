@@ -17,7 +17,7 @@
                 android:name=".ui.StatisticActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.HomeActivity"
+                android:name=".ui.AccountActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.MainActivity"
@@ -26,7 +26,7 @@
                 android:name=".ui.CardActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.AccountActivity"
+                android:name=".ui.HomeActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

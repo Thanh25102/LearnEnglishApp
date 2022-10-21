@@ -20,6 +20,7 @@ import com.example.listview.adapter.LessonRecyclerAdapter;
 import com.example.listview.adapter.TopicRecyclerAdapter;
 import com.example.listview.dto.Lesson;
 import com.example.listview.dto.Topic;
+import com.example.listview.util.ActionBarUtil;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.List;
@@ -32,61 +33,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        loadCustomActionBar();
-        List<Topic> data = loadData();
+        ActionBarUtil actionBarUtil = ActionBarUtil.getInstance();
+        actionBarUtil.loadCustomActionBar(getApplicationContext(),findViewById(R.id.navigationView));
+        List<Topic> data = actionBarUtil.loadTopicData();
         recyclerView = findViewById(R.id.recyclerTopic);
         topicRecyclerAdapter = new TopicRecyclerAdapter(this::displayVocabulariesActivity,TopicRecyclerAdapter.TYPE_TOPIC_LINEAR);
         topicRecyclerAdapter.setData(data);
         recyclerView.setAdapter(topicRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
-
-    public void loadCustomActionBar(){
-        Bitmap sourceBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.manhthanh);
-        Drawable drawable = new BitmapDrawable(getResources(), createCircleBitmap(sourceBitmap));
-
-        NavigationView navigationView = findViewById(R.id.navigationView);
-        View header = navigationView.getHeaderView(0);
-
-        ImageView avatar = header.findViewById(R.id.avatar);
-        avatar.setImageDrawable(drawable);
-        // set event
-    }
-
     private void displayVocabulariesActivity(Topic topic) {
         Intent vocabulariesIntent = new Intent(this, CardActivity.class);
         vocabulariesIntent.putExtra("TOPIC_KEY", topic);
         startActivity(vocabulariesIntent);
     }
 
-    public List<Topic> loadData(){
-        return  List.of(new Topic(null, null, "Economic", "Kinh tế chính trị", null),
-                new Topic(null, null, "Information Teachnology", "Công nghệ thông tin", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null),
-                new Topic(null, null, "Movie", "Phim ảnh", null),
-                new Topic(null, null, "Sex", "Giới tính", null),
-                new Topic(null, null, "Friend", "Bạn bè", null),
-                new Topic(null, null, "Comedy", "Hài kịch", null));
-    }
-    public Bitmap createCircleBitmap(Bitmap bitMapping) {
-        Bitmap output = Bitmap.createBitmap(bitMapping.getWidth(),
-                bitMapping.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(output);
 
-        final int color = 0xff424242;
-        final Paint paint = new Paint();
-        final Rect rect = new Rect(0, 0, bitMapping.getWidth(),
-                bitMapping.getHeight());
-
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(color);
-        canvas.drawCircle(bitMapping.getWidth() / 2,
-                bitMapping.getHeight() / 2, bitMapping.getWidth() / 2, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitMapping, rect, rect, paint);
-        return output;
-    }
 
 }

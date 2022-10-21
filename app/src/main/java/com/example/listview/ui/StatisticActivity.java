@@ -4,13 +4,14 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.listview.R;
+import com.example.listview.util.ActionBarUtil;
+import com.example.listview.util.CustomBarChartRender;
 import com.example.listview.util.ValueFormatter;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.*;
@@ -34,6 +35,8 @@ public class StatisticActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistic);
+        ActionBarUtil actionBarUtil = ActionBarUtil.getInstance();
+        actionBarUtil.loadCustomActionBar(getApplicationContext(),findViewById(R.id.navigationView));
 
         imgTimer = findViewById(R.id.imgTimer);
         imgLearn = findViewById(R.id.imgLearn);
@@ -59,8 +62,6 @@ public class StatisticActivity extends AppCompatActivity {
     private void openNoticeDialog() {
         dialog.setContentView(R.layout.notice_learning_english_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-//        RelativeLayout imgClose = dialog.findViewById(R.id.imgClose);
-//        RelativeLayout imgContinue = dialog.findViewById(R.id.imgContinue);
         dialog.show();
     }
 

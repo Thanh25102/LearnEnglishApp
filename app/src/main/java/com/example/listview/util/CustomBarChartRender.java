@@ -1,4 +1,4 @@
-package com.example.listview.ui;
+package com.example.listview.util;
 
 import android.graphics.*;
 import com.github.mikephil.charting.animation.ChartAnimator;
