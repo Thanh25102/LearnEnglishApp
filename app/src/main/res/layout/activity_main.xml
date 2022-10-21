@@ -7,27 +7,29 @@
         android:layout_height="match_parent"
         tools:context=".ui.MainActivity" android:background="#FFFFFF">
 
-    <com.google.android.material.navigation.NavigationView
-            android:layout_width="0dp"
-            android:layout_height="?attr/actionBarSize"
-            app:headerLayout="@layout/custom_action_bar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            android:id="@+id/navigationView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerTopic" android:layout_margin="0dp"
-            android:backgroundTintMode="add" android:background="@color/nav_bar"
-            app:layout_constraintVertical_bias="1.0"
-            android:layout_gravity="center|center_horizontal|center_vertical"/>
+    <com.google.android.material.appbar.AppBarLayout android:id="@+id/appbar" android:layout_width="match_parent"
+                                                     android:layout_height="wrap_content"
+                                                     app:layout_constraintStart_toStartOf="parent"
+                                                     app:layout_constraintTop_toTopOf="parent"
+                                                     app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.bottomnavigation.BottomNavigationView android:layout_width="match_parent"
+                                                                           android:layout_height="match_parent"
+                                                                           app:menu="@menu/menu_navigation_bar"
+                                                                           android:background="@color/nav_bar"
+                                                                           android:id="@+id/bottomNavVIew">
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/bottomNav"
-            android:id="@+id/recyclerTopic" app:layout_constraintTop_toBottomOf="@+id/navigationView"
-            app:layout_constraintHorizontal_bias="1.0" android:background="@color/back_ground"/>
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent" android:layout_height="0dp"
+                                           app:layout_constraintEnd_toEndOf="parent"
+                                           app:layout_constraintStart_toStartOf="parent"
+                                           app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+                                           app:layout_constraintTop_toBottomOf="@+id/appbar">
+
+    </androidx.viewpager2.widget.ViewPager2>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNav"

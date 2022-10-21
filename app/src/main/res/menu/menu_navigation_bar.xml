@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_notification" android:title="@string/notification"
-          android:icon="@drawable/baseline_home_white_24" />
-    <item android:id="@+id/action_search" android:title="@string/search"
-          android:icon="@drawable/baseline_hotel_class_24"/>
-    <item android:id="@+id/action_setting" android:title="@string/setting"
-          android:icon="@drawable/baseline_home_white_24"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_logo" android:title="Logo"
+          android:icon="@drawable/logo"/>
+    <item android:id="@+id/action_learn" android:title="1000"
+          android:icon="@drawable/reading"/>
+    <item android:id="@+id/action_avatar" android:title="thanh"
+          android:icon="@drawable/manhthanh"/>
 </menu>
