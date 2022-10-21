@@ -1,5 +1,6 @@
 package com.example.listview.ui;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationViewOn.setOnItemSelectedListener(menuItem->{
             if(menuItem.getItemId() == R.id.action_learn){
                 viewPager2.setCurrentItem(3);
+            }else if(menuItem.getItemId() == R.id.action_avatar){
+                Intent intent = new Intent(this,AccountActivity.class);
+                startActivity(intent);
             }
             return true;
         });
